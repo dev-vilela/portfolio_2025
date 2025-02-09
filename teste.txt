@@ -1,0 +1,74 @@
+ <section class="skills" id="skills">
+        <h1 class="section-bg-heading">Minhas Skills</h1>
+        <h1 class="section-heading">Minhas <span>Skills</span></h1>
+        <!-- <h3 class="sub-heading">My <span>Skills</span></h3> -->
+        <div class="section-border"></div>
+        <div class="skills-cards">
+          <div class="skills-card">
+            <div class="skill">
+              <span>HTML</span>
+              <span>95%</span>
+            </div>
+            <p>
+              HTML stands for Hyper Text Markup Language.
+              HTML is the standard markup language for creating Web pages .
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+          <div class="skills-card">
+            <div class="skill">
+              <span>CSS</span>
+              <span>90%</span>
+            </div>
+            <p>
+              CSS stands for Cascading Style Sheets.
+              CSS is the language we use to style a Web page.
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+          <div class="skills-card">
+            <div class="skill">
+              <span>Javascript</span>
+              <span>85%</span>
+            </div>
+            <p>
+              JavaScript is the world's most popular programming language.
+              JavaScript is the programming language of the Web.
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+          <div class="skills-card">
+            <div class="skill">
+              <span>NodeJS</span>
+              <span>85%</span>
+            </div>
+            <p>
+              Node.js is an open source server environment.
+              Node.js allows you to run JavaScript on the server.
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+          <div class="skills-card">
+            <div class="skill">
+              <span>VueJS</span>
+              <span>88%</span>
+            </div>
+            <p>
+              Vue is a JavaScript framework.
+              Vue extends html attributes with Directives, and binds data to html with Expressions.
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+          <div class="skills-card">
+            <div class="skill">
+              <span>SQL</span>
+              <span>88%</span>
+            </div>
+            <p>
+              SQL stands for Structured Query Language.
+              SQL is a standard language for accessing and manipulating databases.
+            </p>
+            <div class="skills-card-progress"></div>
+          </div>
+        </div>
+      </section> 
