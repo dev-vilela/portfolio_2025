@@ -562,6 +562,72 @@ a {
 /*------------------SKILLS---------------------*/
 
 
+
+/*--------FORMAÇÕES-------------*/
+.resume{
+  background-attachment: fixed;
+  width: 100%;
+  padding: 100px 0;
+ 
+}
+
+/* .resume-item{
+  margin-bottom: 20px;
+} */
+
+
+
+.skills p{
+  color: #FFF;
+  letter-spacing: 1px;
+  line-height: 25px;
+  font-size: 19px;
+  margin-bottom: 40px;
+  text-align: left;
+  text-indent: 25px;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #418530;
+  max-width: 600px;
+  left: -50px;
+  position: relative;
+  margin-left: 120px;
+}
+
+ .resume-item h4 {
+  line-height: 18px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #b79bbd;
+  margin-bottom: 10px;
+}
+
+.resume-item ul li, em{
+  color: #b1bffd;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #ad7676;
+  border: 2px solid #1f9773;
+}
+
+/*-----------FIMM FORMAÇÕES---------------*/
+
+
 /* ------------ Section: Skills ------------ */
 .stacks{
   display: flex;
