@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="My Potfolio" content="Mon Portfolio">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
     <!-- <link rel="stylesheet" href="style.css" /> -->
     <link rel="shortcut icon" href="asset/images/favicon.png" type="image/x-icon">
+   
 
     <title>Paulo Vilela</title>
   </head>
@@ -24,6 +27,7 @@
           <a href="#home">Início</a>
           <a href="#about">Sobre</a>
           <a href="#skills">Skills</a>
+          <a href="#formacao">Formação</a>
           <a href="#projects">Projetos</a>
           <a href="#contact">Contato</a>
         </div>
@@ -113,7 +117,7 @@
               Além de experiência administrativa que me trouxe organização e capacidade
               de resolução de problemas. Busco uma oportunidade como Desenvolvedor Junior para aplicar e expandir minhas competências.
             </p>
-            <a href="mailto:paulovilela.contato@gmail.com" target="_blank" class="btn2"><button type="button" class="btn about-btn">Entre em contato comigo</button></a>
+            <a href="#contact" class="btn2"><button type="button" class="btn about-btn" >Entre em contato comigo</button></a>
           </div>
         </div>
       </section>
@@ -179,7 +183,7 @@
   <!-----FIM-SKILLS-->
 
  <!----FORMAÇÕES-->
- <section class="skills btn-top" id="skills">
+ <section class="skills btn-top" id="formacao">
   <h1 class="section-bg-heading ">Minhas Skills</h1>
   <h1 class="section-heading"> <span>Formações</span></h1>
   <!-- <h3 class="sub-heading">My <span>Skills</span></h3> -->
@@ -191,10 +195,11 @@
     <div >
       <div >
         <div class="resume-item">
-          <h4>HTML5 e CSS3</h4>
+         
           <ul>
-            <li>Curso em Video </li>
+            <li> HTML5 e CSS3 </li>
           </ul>
+           <h4>Curso em Video</h4>
         </div>
       </div>
 
@@ -202,10 +207,11 @@
       <div >
         <div >
           <div class="resume-item">
-            <h4>Curso de JavaScript</h4>
+          
             <ul>
-              <li>Curso em Video</li>
+              <li> Curso de JavaScript</li>
             </ul>
+            <h4>Curso em Video</h4>
           </div>
         </div>
 
@@ -213,21 +219,23 @@
           <div >
             <div >
               <div class="resume-item">
-                <h4>Curso Web Design Completo: Front-End</h4>
+                
                 <ul>
-                  <li>Udemy</li>
+                  <li> Curso Web Design Completo: Front-End</li>
                 </ul>
+                <h4>Udemy</h4>
               </div>
             </div>
 
             <div >
                 <div  >
                   <div class="resume-item">
-                    <h4>PROGRAMADOR WEB COMPLETO — DO ZERO AO FULLSTACK </h4>
+                    
                     <!-- <p><em>Cursando</em></p> -->
                     <ul>
-                      <li>Programação Web</li>
+                      <li>Sujeito Programador</li>
                     </ul>
+                    <h4>FullStack PRO</h4>
                   </div>
                 </div>
 
@@ -237,23 +245,23 @@
                     <div  >
                       <div class="resume-item">
                         <!-- <p><em>Cursando</em></p> -->
-                        <h4>Tecnologia em Análise e desenvolvimento de Sistemas <span>02/2024</span> </h4>
+                        
                         
                         <ul>
-                          <li>Centro Universitário de Desenvolvimento do Centro Oeste - UNIDESC</li>
+                          <li>Tecnologia em Análise e desenvolvimento de Sistemas <span>02/2024</span> </li>
                         </ul>
+                        <h4> Centro Universitário de Desenvolvimento do Centro Oeste - UNIDESC </h4>
                       </div>
                     </div>
-
-                    
 
                     <div >
                         <div >
                           <div class="resume-item">
-                            <h4>Técnico em Administração</h4>
+                            
                             <ul>
-                              <li>Instituto Tecnológico do Estado de Goiás - ITEGO</li>
+                              <li>Técnico em Administração</li>
                             </ul>
+                            <h4>Instituto Tecnológico do Estado de Goiás - ITEGO </h4>
                           </div>
                         </div>
                       </div>
@@ -342,12 +350,12 @@
             <div class="project-img">
               <img src="./asset/images/mockups/cineBlack.png" alt="" />
             </div>
-            <div class="techs">
+            <div class="techs"> <br/><br/>
               <span>ReactJs</span>
               <span>-TMDB</span>
               <span>-CSS3</span>
             </div> <br/> <br/>
-            <h3 class="project-name">Cine Black</h3> <br/>
+            <h3 class="project-name cine-black">Cine Black</h3> <br/>
             <p class="project-desc">
               O site, feito em React.js, exibe filmes em cartaz com dados atualizados da API do TMDB. Utiliza hooks, Axios para requisições e CSS para estilização, além de mensagens de carregamento e erro para uma melhor experiência.<br>
             </p>
@@ -361,7 +369,7 @@
           <div class="project-card">
             <div class="project-img">
               <img src="./asset/images/mockups/lista.png" alt="" />
-            </div>
+            </div>  <br/>  <br/> 
             <div class="techs">
               <span>ReactJs</span>
               <span>-Firebase</span>
@@ -382,7 +390,7 @@
             <div class="project-img">
               <img src="./asset/images/mockups/sistema.png" alt="" />
             </div>
-            <br/> <br/>
+            <br/> <br/>  <br/> 
             <div class="techs">
               <span>ReactJs</span>
               <span>-Firebase</span>
@@ -406,68 +414,87 @@
 
       <section class="contact" id="contact">
         <h1 class="section-bg-heading">Contact Me</h1>
-        <h1 class="section-heading">Contact</h1>
-        <h3 class="sub-heading">Let's <span>Have Some Talk</span></h3>
+        <h1 class="section-heading">Contato</h1>
+        <!-- <h3 class="sub-heading">Let's <span>Have Some Talk</span></h3> -->
         <div class="section-border"></div>
         <div class="contact-content">
           <div class="contact-left">
-            <div class="address">
+            <!-- <div class="address">
               <i class="fa-solid fa-location-dot"></i>
               <div class="contact-info">
-                <span>Address</span>
+                <span>En</span>
                 <span>Paris, FRANCE</span>
               </div>
-            </div>
+            </div> -->
             <div class="freelance">
               <i class="fa-regular fa-user"></i>
               <div class="contact-info">
-                <span>Web developer</span>
-                <span>Available Right Now</span>
+                <span>Desenvolvedor Front-End</span>
+                <span>Disponível agora mesmo</span>
               </div>
             </div>
             <div class="email">
-              <a href="mailto:scoreur@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+              <a href="#"><i class="fa-regular fa-envelope"></i></a>
               <div class="contact-info">
                 <span>Email</span>
-                <span>scoreur@gmail.com</span>
+                <span>paulovilela.contato@gmail.com</span>
               </div>
             </div>
             <div class="phone">
-              <a href="https://t.me/programadordesignerpro"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/dev-vilela"><i class="fa-brands fa-github"></i></a>
               <div class="contact-info">
                 <span>Git Hub</span>
-                <span>https://t.me/programadordesignerpro</span>
+                <span>https://github.com/dev-vilela</span>
               </div>
             </div>
           </div>
           <div class="contact-right">
-            <form>
+
+
+            <!---TESTE-->
+            <!-- <form action="https://formsubmit.co/paulovilela.contato@gmail.com" method="POST">
+              <input type="text" name="name" required>
+              <input type="email" name="email" required>
+              <button type="submit">Send</button>
+            </form> -->
+            <!----FIM-TESTE-->
+
+
+
+            <form action="https://formsubmit.co/paulovilela.contato@gmail.com" method="POST">
               <div class="input-groups">
                 <div class="input-group">
-                  <label for="name"
-                    >Your Full Name <i class="fa-solid fa-asterisk"></i>
+                  <label name="name"
+                    >Seu nome completo <i class="fa-solid fa-asterisk"></i>
                   </label>
-                  <input type="text" />
+                  <input name="name" type="text" required/>
                 </div>
                 <div class="input-group">
-                  <label for="email"
-                    >Your Email Address <i class="fa-solid fa-asterisk"></i>
+                  <label name="email"
+                    >Seu endereço de email <i class="fa-solid fa-asterisk"></i>
                   </label>
-                  <input type="email" />
+                  <input name="email" type="email" required/>
                 </div>
                 <div class="input-group">
-                  <label for="subject"
-                    >Your Subject <i class="fa-solid fa-asterisk"></i>
+                  <label name="assunto"
+                    >Seu Assunto <i class="fa-solid fa-asterisk"></i>
                   </label>
-                  <input type="text" />
+                  <input name="assunto" type="text"  required/>
                 </div>
                 <div class="input-group">
-                  <label for="message"
-                    >Your Message <i class="fa-solid fa-asterisk"></i>
+                  <label name="message"
+                    >Sua mensagem <i class="fa-solid fa-asterisk"></i>
                   </label>
-                  <textarea></textarea>
+                  <textarea name="message" required></textarea>
                 </div>
-                <button type="button" class="contact-btn">Send Message</button>
+                
+                <button  type="submit" class="contact-btn" id="enviar-btn">Enviar</button>
+
+             
+                <input type="hidden" name="_subject" value="Novo Contato!">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/obrigado.html">
               </div>
             </form>
           </div>
@@ -476,12 +503,12 @@
 
       <footer class="footer">
         <div class="icons">
-              <a href="https://www.instagram.com/programadordesignerpro/"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://www.instagram.com/programadordesignerpro/"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.instagram.com/programadordesignerpro/"><i class="fa-brands fa-behance"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
+              <a href="#"><i class="fa-brands fa-asterisk"></i></a>
         </div>
         <div class="copyright">
-            <p>&copy;Paulo <span>Dev</span> 2024</p>
+            <p>&copy;Paulo <span>Dev</span> 2025</p>
         </div>
         <div class="author">
             <p>Desenvolvido por <span>Paulo Vilela</span></p>
@@ -490,9 +517,11 @@
 
     </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

@@ -700,6 +700,10 @@ a {
 
 /* ------------ Section: Projects ------------ */
 
+.cine-black{
+  margin-top: 5px;
+}
+
 .projects {
   width: 100%;
   position: relative;
@@ -1167,7 +1171,8 @@ textarea {
 }
 @media (max-width: 500px) {
   .navigation {
-    width: 100%;
+    width: 50%;
+    background-color: #14336462;
     right: -100rem;
     justify-content: center;
   }
@@ -1218,6 +1223,8 @@ textarea {
   .techs span{
     font-size: 10px;
   }
-  
+
+
+ 
 }
 

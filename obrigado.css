@@ -1,0 +1,42 @@
+body{
+    background-color: #121212;
+}
+
+.container{
+  
+    height: 500px;
+    margin: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.area{
+    justify-items: center;
+}
+
+h1{
+    color: green;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+p{
+    color: #FFF;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #FFF;
+    background-color: #ff0505;
+    padding: 8px;
+    border-radius: 15px;
+    transition: all 1.2s;
+}
+
+a:hover{
+    background-color: green;
+}
