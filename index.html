@@ -3,492 +3,1483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paulo Vilela | Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
+    <title>Paulo Vilela | Engenharia & IA</title>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="asset/images/favicon.png" type="image/x-icon">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+      
 
-    <script src="js/index.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/port_atual.css">
+
 </head>
-<body class="bg-dark text-gray-300 font-sans selection:bg-gold selection:text-dark">
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-2xl font-serif font-bold tracking-tighter">
-                <span class="text-gold">P</span>V
-            </div>
+<body class="bg-[#030712] text-slate-100 min-h-screen font-sans selection:bg-cyan-500 selection:text-black antialiased overflow-x-hidden">
+
+    <!-- MODAL DIPLOMA -->
+<div id="diplomaModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+
+    <div class="relative max-w-4xl w-full">
+
+        <!-- BOTÃO FECHAR -->
+        <button onclick="closeModal()"
+            class="absolute -top-12 right-0 text-white hover:text-cyan-400 text-3xl transition">
+            ×
+        </button>
+
+        <!-- IMAGEM -->
+        <img
+            src="asset/images/diploma.jpg"
+            alt="Diploma"
+            class="w-full rounded-2xl shadow-2xl border border-white/10"
+        />
+
+    </div>
+</div>
+
+    <!-- Background Lights & Glows -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute top-[120vh] right-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
+    <div class="absolute top-[280vh] left-10 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+    <div class="absolute top-[420vh] right-10 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- Grid Pattern Style Vercel -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f29370e_1px,transparent_1px),linear-gradient(to_bottom,#1f29370e_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 border-b border-white/5 glassmorphism">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
-                <a href="#inicio" class="hover:text-gold transition-colors duration-300">Início</a>
-                <a href="#sobre" class="hover:text-gold transition-colors duration-300">Sobre</a>
-                <a href="#skills" class="hover:text-gold transition-colors duration-300">Skills</a>
-                <a href="#projetos" class="hover:text-gold transition-colors duration-300">Projetos</a>
-                <a href="#educacao" class="hover:text-gold transition-colors duration-300">Educação</a>
-                <a href="#contato" class="hover:text-gold transition-colors duration-300">Contato</a>
+            <!-- Logo / Brand -->
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="scrollToSection('home')">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 flex items-center justify-center text-white font-extrabold shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-all">
+                    PV
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight text-white block">Paulo Vilela</span>
+                    <span class="text-[10px] text-cyan-400 font-mono tracking-widest uppercase -mt-1 block">AI & DEVELOPMENT</span>
+                </div>
             </div>
 
-            <!-- Mobile Menu Toggle (Simplified) -->
-            <button id="menu-btn" class="md:hidden text-gold">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 p-1.5 rounded-full">
+                <button onclick="scrollToSection('sobre')" data-section="sobre" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Sobre</button>
+                <button onclick="scrollToSection('formacoes')" data-section="formacoes" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Formação</button>
+                <button onclick="scrollToSection('empresa')" data-section="empresa" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Protechvil</button>
+                <button onclick="scrollToSection('projetos')" data-section="projetos" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Projetos</button>
+                <button onclick="scrollToSection('habilidades')" data-section="habilidades" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Habilidades</button>
+                <button onclick="scrollToSection('experiencia')" data-section="experiencia" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Experiência</button>
+                <button onclick="scrollToSection('contato')" data-section="contato" class="nav-btn px-4 py-2 rounded-full text-xs font-medium tracking-wide text-slate-400 hover:text-white hover:bg-white/5 transition-all">Contato</button>
+            </nav>
+
+            <!-- Socials & CTA Desktop -->
+            <div class="hidden lg:flex items-center gap-3">
+                <a href="https://github.com/dev-vilela" target="_blank" rel="noreferrer" class="p-2.5 rounded-full border border-white/10 hover:border-cyan-500/50 hover:bg-cyan-500/5 text-slate-300 hover:text-cyan-400 transition-all duration-300" title="GitHub">
+                    <i   class="fa-brands fa-github " ></i>
+                </a>
+                <a href="https://www.linkedin.com/in/paulo-vilela-18126922b/" target="_blank" rel="noreferrer" class="p-2.5 rounded-full border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 text-slate-300 hover:text-blue-400 transition-all duration-300" title="LinkedIn">
+                    <i   class="fa-brands fa-linkedin " ></i>
+                </a>
+                <button onclick="scrollToSection('contato')" class="px-5 py-2.5 rounded-full bg-white text-slate-950 font-semibold text-xs tracking-wider uppercase hover:bg-transparent hover:text-white hover:border-white border border-white transition-all shadow-md shadow-white/5">
+                    Iniciar Projeto
+                </button>
+            </div>
+
+            <!-- Hamburger Menu Mobile Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-dark border-t border-white/10">
-    <div class="flex flex-col text-center py-6 space-y-6 text-sm uppercase tracking-widest">
-        <a href="#inicio" class="hover:text-gold">Início</a>
-        <a href="#sobre" class="hover:text-gold">Sobre</a>
-        <a href="#skills" class="hover:text-gold">Skills</a>
-        <a href="#projetos" class="hover:text-gold">Projetos</a>
-        <a href="#educacao" class="hover:text-gold">Educação</a>
-        <a href="#contato" class="hover:text-gold">Contato</a>
-    </div>
-</div>
-    </nav>
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-white/10 bg-[#030712] py-6 px-6 space-y-4 animate-fadeIn">
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="scrollToSection('sobre')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Sobre Mim</button>
+                <button onclick="scrollToSection('formacoes')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Formações</button>
+                <button onclick="scrollToSection('empresa')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Empresa</button>
+                <button onclick="scrollToSection('projetos')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Projetos</button>
+                <button onclick="scrollToSection('habilidades')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Skills</button>
+                <button onclick="scrollToSection('experiencia')" class="mobile-nav-btn p-3 rounded-xl text-left text-sm font-medium border bg-white/[0.02] border-white/5 text-slate-400 hover:text-white">Experiência</button>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div class="flex gap-4">
+                    <a href="https://github.com" target="_blank" class="p-2 text-slate-400 hover:text-white"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="p-2 text-slate-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+                <button onclick="scrollToSection('contato')" class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg text-xs font-bold uppercase tracking-wider text-white">
+                    Orçamento Rápido
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 relative overflow-hidden">
-        <!-- Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 blur-[120px] rounded-full"></div>
+    <!-- 1️⃣ HERO SECTION -->
+    <section id="home" class="relative pt-12 pb-24 lg:pt-20 lg:pb-36 overflow-hidden z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Area -->
+                <div class="lg:col-span-7 text-left space-y-6">
+                    
+                    <!-- Availability Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-medium tracking-wide">
+                        <span class="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        Disponível para Projetos de IA & Fullstack
+                    </div>
+
+                    <!-- Main Catchy Title -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-white">
+                        Dev. FullStack & 
+                        <span class="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                            Automação com IA
+                        </span>
+                    </h1>
+
+                    <!-- Premium Subtitle -->
+                    <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+                        Desenvolvo aplicações web modernas e soluções Full Stack utilizando tecnologias atuais, integrando automações e Inteligência Artificial para criar sistemas eficientes, escaláveis e focados em resolver problemas reais.
+                    </p>
+
+                    <!-- Call To Action Actions -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <button onclick="scrollToSection('projetos')" class="px-8 py-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold rounded-xl flex items-center gap-2 group shadow-lg shadow-blue-500/25 transform active:scale-95 transition-all text-sm uppercase tracking-wider">
+                            Explorar Projetos 
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <button onclick="scrollToSection('contato')" class="px-8 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-slate-200 font-semibold rounded-xl flex items-center gap-2 transform active:scale-95 transition-all text-sm uppercase tracking-wider">
+                            Falar Comigo
+                        </button>
+                    </div>
+
+                    <!-- Tech Stack Quick Summary -->
+                    <div class="pt-8 border-t border-white/5 space-y-3">
+                        <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block">STACK PRINCIPAL</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">React</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">Java</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">Spring Boot</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">TailwindCSS</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">APIs REST</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">Inteligência Artificial</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">Automação IA</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">n8n</span>
+                            <span class="px-3 py-1 rounded-md bg-slate-900/60 border border-white/5 text-xs text-slate-400 hover:border-cyan-500/30 hover:text-white transition-all duration-300">Git/GitHub</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Side: Frame & Visual Showcase -->
+                <div class="lg:col-span-5 relative flex justify-center z-10">
+                    
+                    <!-- Glow Behind Picture Frame -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full blur-[80px] opacity-20 pointer-events-none scale-75"></div>
+
+                    <!-- Image Premium Border Container -->
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] rounded-3xl p-1 bg-gradient-to-tr from-cyan-500 via-blue-500 to-purple-600 shadow-2xl">
+                        
+                        <!-- Internal Glass Content -->
+                        <div class="w-full h-full bg-slate-950 rounded-[22px] overflow-hidden relative flex flex-col items-center justify-center p-6 group">
+                            
+                            <!-- Profile Visual Fallback Optimized Picture -->
+                            <img 
+                                src="asset/images/eu32.jpeg" 
+                                alt="Foto Profissional de Perfil" 
+                                class="w-full h-full object-cover rounded-xl filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                                onerror="this.src='https://placehold.co/600x600/030712/22d3ee?text=PROTECHVIL+AI'"
+                            >
+
+                            <!-- Mini User Interface Mockup -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                                <div class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
+                                <div class="flex-1 text-left">
+                                    <p class="text-xs font-bold text-white">Pronto para Code / Deploy</p>
+                                    <p class="text-[10px] text-slate-400 font-mono">Status: Integrando Agentes IA</p>
+                                </div>
+                                <i data-lucide="terminal" class="w-5 h-5 text-cyan-400"></i>
+                            </div>
+
+                            <!-- Floating Tech Badges -->
+                            <div class="absolute -top-3 -right-3 bg-[#030712] border border-cyan-500/40 px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i>
+                                <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Prompt Engineer</span>
+                            </div>
+
+                            <div class="absolute top-1/2 -left-6 transform -translate-y-1/2 bg-[#030712] border border-purple-500/40 px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
+                                <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i>
+                                <span class="text-[10px] font-mono text-purple-400 font-bold uppercase">Spring API</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2️⃣ SOBRE MIM -->
+    <section id="sobre" class="py-24 border-t border-white/5 bg-slate-950/40 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">MINHA TRAJETÓRIA</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Sobre Mim & Visão Tecnológica</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    A convergência perfeita de habilidades analíticas consolidadas no mercado corporativo com o desenvolvimento avançado de código.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left bio copy description -->
+                <div class="lg:col-span-6 space-y-6 text-left">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="user" class="w-5 h-5 text-cyan-400"></i>
+                        Minha História de Transição
+                    </h4>
+                    
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Me chamo <strong>Paulo Vilela</strong> , sou formado em <span class="text-white font-semibold">Análise e Desenvolvimento de Sistemas</span> e atualmente aprofundo meus estudos acadêmicos cursando <span class="text-white font-semibold">Engenharia de Software</span>. Minha jornada une conhecimentos técnicos de alto nível a uma visão de negócios refinada devido ao meu trabalho no setor corporativo de compras.
+                    </p>
+
+                    <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-900/10 to-purple-900/10 border border-white/5 space-y-3">
+                        <h5 class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-bold">Por que o Setor de Compras me diferencia?</h5>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                          Trabalhar com compras exige profunda organização processual, visão de custo-benefício, gerenciamento de fornecedores e controle de métricas rigorosas. Aplico essa mesma lógica analítica na tecnologia: reduzindo desperdícios computacionais, automatizando gargalos repetitivos e arquitetando soluções com foco em escalabilidade de negócios.
+                        </p>
+                    </div>
+
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Com sólida experiência em desenvolvimento <span class="text-white font-semibold">Fullstack (Java / Spring Boot / React / APIs REST)</span> e ferramentas como <span class="text-white font-semibold">Git, GitHub, Tailwind e Docker</span>, estou em transição oficial e constante expansão profissional focado no que há de mais moderno: a inteligência artificial.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="border border-white/5 bg-white/[0.01] p-4 rounded-xl">
+                            <span class="text-3xl font-extrabold text-white block">100%</span>
+                            <span class="text-xs text-slate-400 font-mono uppercase tracking-wider block mt-1">Sistemas Funcionais</span>
+                        </div>
+                        <div class="border border-white/5 bg-white/[0.01] p-4 rounded-xl">
+                            <span class="text-3xl font-extrabold text-white block">24/7</span>
+                            <span class="text-xs text-slate-400 font-mono uppercase tracking-wider block mt-1">Automação com IA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Timeline -->
+                <div class="lg:col-span-6 space-y-6 ">
+                    <h4 class="text-xl font-bold text-white text-left flex items-center gap-2 mb-8">
+                        <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+                        Evolução Profissional
+                    </h4>
+
+                    <div class="relative border-l border-white/10 pl-6 ml-4 space-y-10 text-left ">
+                        
+                        <!-- Timeline Point 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-cyan-400 border-4 border-[#030712] shadow-sm shadow-cyan-400"></div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase">2025 - Presente</span>
+                                <h5 class="text-base font-bold text-white">Engenharia de Software & IA na PROTECHVIL</h5>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Fundação da PROTECHVIL. Foco no desenvolvimento de soluções disruptivas que utilizam APIs, LLMs (Large Language Models) e arquiteturas baseadas em microsserviços.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Point 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-blue-500 border-4 border-[#030712]"></div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono font-bold text-blue-400 uppercase">2024 - atual</span>
+                                <h5 class="text-base font-bold text-white">Setor de Compras</h5>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                   Atuação no setor de compras com foco em organização operacional, controle de processos e suporte administrativo. Responsável pela emissão de solicitações e pedidos de compras via NetSuite, gestão de cotações e negociação com fornecedores de insumos laboratoriais e materiais de escritório, além do processamento de notas fiscais e ordens de compra.
+
+                                   Também atuo no controle de correspondências internas e externas, prestação de contas do cartão corporativo e suporte ao fluxo financeiro com envio de contas a pagar, garantindo organização, cumprimento de prazos e conformidade nas operações da empresa.
+
+                                </p>
+                            </div>
+                        </div>
+
+                         <!-- Timeline Point 3 -->
+                        <!-- <div class="relative">
+                            <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-green-500 border-4 border-[#030712]"></div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono font-bold text-purple-400 uppercase">2025 - 2027</span>
+                                <h5 class="text-base font-bold text-white">Bacharelado em Engenharia de Software (Em andamento)</h5>
+                                <p class="text-xs text-slate-400">
+                                    Formação voltada para o desenvolvimento de visão analítica, arquitetura de sistemas e engenharia de soluções escaláveis. Estudo contínuo de desenvolvimento Full Stack, Programação Orientada a Objetos (POO), arquitetura MVC, bancos de dados relacionais e não relacionais, APIs, estruturação de software e boas práticas de engenharia.
+
+                                    O curso fortalece a capacidade de análise, resolução de problemas complexos, pensamento lógico e organização de sistemas modernos, unindo fundamentos acadêmicos à aplicação prática no desenvolvimento de software e soluções tecnológicas.
+                                </p>
+                            </div>
+                        </div> -->
+
+                        <!-- Timeline Point 4 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-purple-500 border-4 border-[#030712]"></div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-mono font-bold text-purple-400 uppercase">2022 - 2024</span>
+                                <h5 class="text-base font-bold text-white">Graduação em ADS (Concluída)</h5>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Desenvolvimento de bases acadêmicas sólidas. Aprendizado profundo de POO, MVC, bancos de dados relacionais/não-relacionais e desenvolvimento web modular.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3️⃣ FORMAÇÕES E ESTUDOS -->
+    <section id="formacoes" class="py-24 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">ESTUDOS E PREPARO</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Minhas Formações & Qualificações</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Desenvolvimento intelectual guiado por excelência. Conheça meus focos de estudo e graduação técnica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Formation Card 1 -->
+                <div class="group relative bg-slate-900/40 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-[10px] font-mono font-semibold text-slate-300 uppercase">IA & Automação</span>
+                            <span class="text-[10px] font-mono font-bold uppercase text-cyan-400 animate-pulse">Em Andamento</span>
+                        </div>
+                        <div class="space-y-1 text-left">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Engenharia de Automação com IA</h4>
+                            <p class="text-xs text-slate-400 font-medium">Formação Avançada / Especialização Prática</p>
+                            <p class="text-xs text-slate-500 font-mono">2026 - Presente</p>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed text-left">
+                            Desenvolvimento de agentes inteligentes, orquestração de fluxos com n8n, engenharia de prompt avançada e integração de LLMs em sistemas corporativos.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-white/5 space-y-2">
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                            <span>Progresso da Grade</span>
+                            <span class="text-white font-bold">10%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-500" style="width: 10%"></div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-slate-500 flex items-center gap-1">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-cyan-400"></i> Certificado Digital inativo
+                            </span>
+                            <span class="text-[10px] font-mono text-cyan-400 hover:underline cursor-pointer">Visualizar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation Card 2 -->
+                <div class="group relative bg-slate-900/40 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-[10px] font-mono font-semibold text-slate-300 uppercase">Engenharia</span>
+                            <span class="text-[10px] font-mono font-bold uppercase text-cyan-400 animate-pulse">Em Andamento</span>
+                        </div>
+                        <div class="space-y-1 text-left">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Bacharelado em Engenharia de Software</h4>
+                            <p class="text-xs text-slate-400 font-medium">Estácio</p>
+                            <p class="text-xs text-slate-500 font-mono">2025 - 2027</p>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed text-left">
+                            Formação voltada ao desenvolvimento de visão analítica, arquitetura de sistemas e soluções escaláveis. Estudo contínuo de desenvolvimento Full Stack, POO, APIs, bancos de dados e boas práticas de engenharia de software, fortalecendo análise, lógica e resolução de problemas no desenvolvimento de sistemas modernos.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-white/5 space-y-2">
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                            <span>Progresso da Grade</span>
+                            <span class="text-white font-bold">70%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-500" style="width: 70%"></div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-slate-500 flex items-center gap-1">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-cyan-400"></i> Diploma  Digital Inativo
+                            </span>
+                            <span class="text-[10px] font-mono text-cyan-400 hover:underline cursor-pointer">Visualizar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation Card 3 -->
+                <div class="group relative bg-slate-900/40 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md bg-white/5 text-[10px] font-mono font-semibold text-slate-300 uppercase">TI</span>
+                            <span class="text-[10px] font-mono font-bold uppercase text-green-400">Concluído</span>
+                        </div>
+                        <div class="space-y-1 text-left">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Análise e Desenvolvimento de Sistemas</h4>
+                            <p class="text-xs text-slate-400 font-medium">Tecnólogo Superior - UNIDESC</p>
+                            <p class="text-xs text-slate-500 font-mono">2022 - 2024</p>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed text-left">
+                            Formação sólida voltada para desenvolvimento rápido de software, modelagem de banco de dados, lógica de programação estruturada e orientada a objetos.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-white/5 space-y-2">
+                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                            <span>Progresso da Grade</span>
+                            <span class="text-white font-bold">100%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-500" style="width: 100%"></div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <span class="text-[10px] font-mono text-slate-500 flex items-center gap-1">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-cyan-400"></i> Certificado Digital Ativo
+                            </span>
+                            <button onclick="openModal()" class="text-[10px] font-mono text-cyan-400 hover:underline cursor-pointer">
+                                Visualizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Continuing Studies Additional Showcase -->
+            <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-cyan-500/5 to-purple-600/5 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+                <div class="flex items-center gap-4">
+                    <div class="h-12 w-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold text-white">Estudos Contínuos em IA Generativa</h4>
+                        <p class="text-xs text-slate-400">Desenvolvimento de sistemas integrando LangChain, LlamaIndex e as APIs de LLM mais avançadas do mercado global.</p>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-slate-300">FastAPI</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-slate-300">Docker</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-slate-300">AWS Cloud</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4️⃣ MINHA EMPRESA (PROTECHVIL) -->
+    <section id="empresa" class="py-24 border-t border-white/5 bg-[#030712] relative overflow-hidden z-10">
         
-        <div class="relative z-10">
-            <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Desenvolvedor Front-End</p>
-            <h1 class="text-6xl md:text-8xl font-serif font-bold text-white mb-6 tracking-tight">
-                Paulo Vilela
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                Transformando ideias em experiências digitais elegantes e funcionais.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#projetos" class="px-8 py-4 bg-gold text-dark font-bold rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-gold/20">
-                    Ver Projetos
-                </a>
-                <a href="#contato" class="px-8 py-4 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300">
-                    Contato
-                </a>
-            </div>
-        </div>
+        <!-- Deep Radial Spot Light -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <!-- Scroll Arrow -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gold/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </div>
-    </section>
-
-    <!-- SOBRE MIM -->
-    <section id="sobre" class="py-24 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-serif font-bold text-white mb-16 text-center">Quem sou eu</h2>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Coluna Foto -->
-                <div class="flex justify-center">
-                    <div class="relative group">
-                        <div class="absolute -inset-2 border-2 border-gold rounded-2xl opacity-30 group-hover:opacity-100 transition duration-500"></div>
-                        <div class="w-64 h-80 md:w-80 md:h-[450px] bg-dark rounded-xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition duration-500 flex items-center justify-center text-white/20 italic">
-                            <!-- Espaço para foto -->
-                           <img src="asset/images/MY/fotocapa.jpeg" alt="">
-                        </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+                
+                <div class="lg:col-span-6 text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono font-medium tracking-wide">
+                        <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+                        Minha agência
                     </div>
-                </div>
 
-                <!-- Coluna Texto -->
-                <div>
-                    <p class="text-lg leading-relaxed mb-6">
-                       Me chamo Paulo Vilela, sou graduado em <span class="text-white font-medium">Análise e Desenvolvimento de Sistemas</span>, com experiência em
-                       projetos de front-end e interesse amplo na área de desenvolvimento, contemplando tanto
-                       front-end quanto back-end.Tenho conhecimento em HTML5, CSS3, Bootstrap, TailwindCSS, JavaScript e ReactJs, além de uma bagagem administrativa que me
-                       proporcionou organização e habilidade para resolver problemas de forma eficiente.
-                    </p>
-                    <p class="text-lg leading-relaxed mb-10 italic border-l-2 border-gold pl-6 text-gray-400">
-                       Atualmente, estou cursando Engenharia de Software, com foco no ecossistema Java, buscando aprofundar meus conhecimentos técnicos e ampliar minhas competências.
-                       Estou em busca de uma oportunidade como Desenvolvedor Trainee ou estágio para
-                       colocar em prática e desenvolver ainda mais minhas habilidades.
+                    <h3 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                        Inovação sob demanda:<br>
+                        Conheça a <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"><a href="https://protechvil.netlify.app/" target="_blank">PROTECHVIL</a> </span>
+                    </h3>
+
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        A PROTECHVIL nasceu para acelerar a transformação digital de micro e grandes empresas através de inteligência artificial de ponta e desenvolvimento de sistemas extremamente robustos. Traduzimos processos manuais demorados em fluxos digitais que trabalham por você 24 horas por dia.
                     </p>
 
-                    <!-- Stats Cards -->
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="p-4 bg-dark rounded-xl border border-white/5 hover:border-gold/30 transition-all">
-                            <p class="text-2xl font-bold text-gold">20+</p>
-                            <p class="text-xs uppercase tracking-tighter text-gray-500">Projetos</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 flex-shrink-0"></i>
+                            <span>Landing Pages ultravelozes focadas em conversão.</span>
                         </div>
-                        <div class="p-4 bg-dark rounded-xl border border-white/5 hover:border-gold/30 transition-all">
-                            <p class="text-2xl font-bold text-gold">3</p>
-                            <p class="text-xs uppercase tracking-tighter text-gray-500">Formações</p>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 flex-shrink-0"></i>
+                            <span>Automações com Agentes de IA customizados (n8n).</span>
                         </div>
-                        <div class="p-4 bg-dark rounded-xl border border-white/5 hover:border-gold/30 transition-all">
-                            <p class="text-2xl font-bold text-gold">2+</p>
-                            <p class="text-xs uppercase tracking-tighter text-gray-500">Anos Exp.</p>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 flex-shrink-0"></i>
+                            <span>Sistemas gerenciais modernos de alta performance.</span>
+                        </div>
+                    </div>
+
+                    <button onclick="scrollToSection('contato')" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-950 hover:bg-transparent hover:text-white border border-white font-bold rounded-xl transition-all text-xs tracking-wider uppercase">
+                        Solicitar Orçamento de Solução
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Glassmorphic Terminal Showcase Card -->
+                <div class="lg:col-span-6">
+                    <div class="p-1 rounded-3xl bg-gradient-to-br from-purple-500/30 to-cyan-500/30">
+                        <div class="bg-slate-950/90 backdrop-blur-xl border border-white/5 rounded-[22px] p-8 text-left space-y-6">
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                                    <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                                    <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <span class="text-xs font-mono text-slate-500">protechvil-system-v1.0.js</span>
+                            </div>
+
+                            <div class="py-8 flex flex-col items-center justify-center border-y border-white/5 relative">
+                                <div class="h-16 w-16 rounded-2xl bg-gradient-to-tr from-cyan-400 to-purple-600 flex items-center justify-center text-white text-3xl font-black shadow-lg shadow-cyan-500/20">
+                                    P
+                                </div>
+                                <span class="mt-4 text-xl font-bold tracking-tight text-white uppercase">PROTECHVIL</span>
+                                <span class="text-xs text-slate-400 font-mono tracking-widest mt-1">SISTEMAS INTELIGENTES</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 text-xs font-mono">
+                              <!-- <div class="space-y-1">
+                                    <span class="text-slate-500 block">Sistemas Operacionais:</span>
+                                    <span class="text-white font-bold">Cloud Web / SaaS</span>
+                                </div> -->
+                                <div class="space-y-1">
+                                    <span class="text-slate-500 block">Foco da IA:</span>
+                                    <span class="text-white font-bold">Atendimento & OCR</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-slate-500 block">Padrões de Qualidade:</span>
+                                    <span class="text-white font-bold">Clean Code / TDD</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-slate-500 block">Segurança:</span>
+                                    <span class="text-white font-bold">OAuth2 / SSL</span>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service Card 1 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="layout" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Landing Pages Inteligentes</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Páginas de alta conversão integradas com análise de comportamento, otimização extrema de performance (SEO) e capturas automatizadas de leads.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Automações com IA</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Substituição de processos manuais repetitivos por fluxos automatizados inteligentes integrados a CRMs, ERPs e planilhas usando n8n ou custom coding.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Chatbots de Atendimento</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Agentes conversacionais inteligentes treinados especificamente com a base de conhecimento do seu negócio para responder clientes 24/7 de forma humanizada.</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Integração de APIs</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Conexão fluida entre diferentes plataformas, sistemas legados, gateways de pagamento e serviços em nuvem garantindo tráfego rápido e seguro de dados.</p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Desenvolvimento Web</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Sistemas web modernos e dinâmicos construídos com tecnologias de ponta como React e Spring Boot, garantindo escalabilidade e robustez de nível enterprise.</p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="group p-6 bg-slate-900/20 border border-white/5 rounded-2xl text-left hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400/10 to-blue-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-all">
+                        <i data-lucide="building" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Sistemas Personalizados</h4>
+                    <p class="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">Soluções totalmente sob medida para desafios operacionais do seu negócio, convertendo dores gerenciais em softwares eficientes e intuitivos.</p>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <!-- SKILLS -->
-     <section id="skills" class="py-24 bg-dark">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-serif font-bold text-white mb-16 text-center">Minhas Skills</h2>
+    <!-- 5️⃣ PROJETOS -->
+    <section id="projetos" class="py-24 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Front-End -->
-                <div class="p-8 bg-surface rounded-2xl border border-white/5 custom-shadow">
-                    <h3 class="text-gold font-bold mb-6 flex items-center gap-2 italic text-lg uppercase tracking-widest">
-                        <span class="w-8 h-[1px] bg-gold"></span> Front-End
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <div class="skill-badge">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="#E34F26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                            <span class="text-xs">HTML5</span>
-                        </div>
-                        <div class="skill-badge">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="#1572B6"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                            <span class="text-xs">CSS3</span>
-                        </div>
-                        <div class="skill-badge">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="#F7DF1E"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.045-.705.15-.435.63-.6 1.05-.555.48.045.855.27 1.155.63.15.18.24.45.24.45l2.425-1.41s-.42-.855-1.29-1.395c-1.095-.69-2.52-.855-3.51-.465-1.56.585-2.235 1.905-1.635 3.51.6 1.56 1.92 2.1 3.555 2.76.99.405 1.485.645 1.71 1.065.255.465.135 1.05-.3 1.35-.555.405-1.305.3-1.62-.03-.435-.405-.69-.87-.705-1.59l-2.49.135c.03 2.19 1.41 3.255 3.195 3.57 1.83.315 3.9-.15 4.545-2.19.165-.48.21-.855.12-1.365zM12.001 0h-2v17.4h-3.4v2.6h8.4v-2.6h-3V0z"/></svg>
-                            <span class="text-xs">JavaScript</span>
-                        </div>
-                        <div class="skill-badge">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="#61DAFB"><path d="M23.32 10.648a.504.504 0 0 0-.196-.11c-1.357-.426-2.83-.65-4.32-.651a14.153 14.153 0 0 0-4.043.582 12.046 12.046 0 0 0-3.656-4.412 10.232 10.232 0 0 0-3.23-1.53.504.504 0 0 0-.583.275 12.184 12.184 0 0 0-1.492 6.54c0 1.376.192 2.731.56 4.021a12.083 12.083 0 0 0-2.31 3.013 10.274 10.274 0 0 0-1.137 3.39.504.504 0 0 0 .393.574.498.498 0 0 0 .09.008.504.504 0 0 0 .445-.276 12.053 12.053 0 0 0 1.944-5.121 12.135 12.135 0 0 0 3.733.473c1.45 0 2.873-.125 4.232-.375a12.1 12.1 0 0 0 3.561 4.476c1.1.823 2.275 1.485 3.5 1.968a.504.504 0 0 0 .619-.215 12.128 12.128 0 0 0 2.046-6.433c0-1.511-.233-2.986-.676-4.364zM12 13.565a1.565 1.565 0 1 1 0-3.13 1.565 1.565 0 0 1 0 3.13z"/></svg>
-                            <span class="text-xs">ReactJS</span>
-                        </div>
-                        <div class="skill-badge">
-                            <svg class="skill-icon" viewBox="0 0 24 24" fill="#38B2AC"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19.2 12.001 19.2c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
-                            <span class="text-xs">Tailwind</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">PORTFÓLIO PRÁTICO</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Casos de Uso & Projetos em Destaque</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Amostra de sistemas, dashboards, integrações complexas e automações reais desenhadas para maximizar resultados.
+                </p>
 
-                <!-- Back-End -->
-                <div class="p-8 bg-surface rounded-2xl border border-white/5 custom-shadow">
-                    <h3 class="text-gold font-bold mb-6 flex items-center gap-2 italic text-lg uppercase tracking-widest">
-                        <span class="w-8 h-[1px] bg-gold"></span> Back-End
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                     <div class="skill-badge">
-    <!-- JAVA (corrigido) -->
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#007396">
-        <path d="M13.5 2s2.5 2-1 4c-2.5 1.5-2 2.5 0 4-3-1-4-3-2-5 1.5-1.5 3-3 3-3zM9 8s-3 2-1 4c1.5 1.5 4 1 4 1s-2-1-1-2c1-1 3-2 3-2s-2 0-3-1c-1-1-2-2-2-2zM6 14s-2 2 2 3c4 1 8 0 8 0s-1 1-4 1c-3 0-6-1-6-3 0-1 0-1 0-1z"/>
-    </svg>
-    <span class="text-xs">Java</span>
-</div>
-
-<div class="skill-badge">
-    <!-- SPRING (corrigido - folha oficial) -->
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#6DB33F">
-        <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 4.4 2.9 8.2 6.9 9.5.5.1.7-.2.7-.5v-2c-2.8.6-3.4-1.3-3.4-1.3-.4-1-.9-1.3-.9-1.3-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.8 2.4.6.1-.5.3-.8.5-1-2.2-.3-4.6-1.1-4.6-4.8 0-1 .4-1.8 1-2.4-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.6.6.6 1 1.4 1 2.4 0 3.7-2.4 4.5-4.7 4.8.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12z"/>
-    </svg>
-    <span class="text-xs">Spring</span>
-</div>
-
-<div class="skill-badge">
-    <!-- MYSQL (corrigido - golfinho estilo simples) -->
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#4479A1">
-        <path d="M18.5 6c-1.5-1.5-4-2-6-1.5-2 .5-3.5 2-4 4-.5 2 0 4 1.5 5.5 1.2 1.2 2.8 1.8 4.5 1.7l1.5 2c.2.3.6.3.8 0l.5-.7c.2-.3.2-.6 0-.8l-1-1.2c1.2-.5 2.2-1.4 2.8-2.6.7-1.5.6-3.2-.6-4.4z"/>
-    </svg>
-    <span class="text-xs">MySQL</span>
-</div>
-                    </div>
-                </div>
-
-                <!-- Ferramentas -->
-                <div class="p-8 bg-surface rounded-2xl border border-white/5 custom-shadow">
-                    <h3 class="text-gold font-bold mb-6 flex items-center gap-2 italic text-lg uppercase tracking-widest">
-                        <span class="w-8 h-[1px] bg-gold"></span> Ferramentas
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                       <div class="skill-badge">
- 
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#F05032">
-        <path d="M23.546 10.93L13.067.452a1.493 1.493 0 0 0-2.103 0l-2.03 2.03 3.39 3.39c.394-.132.85-.03 1.15.27.313.313.407.765.283 1.16l3.3 3.3c.395-.124.847-.03 1.16.283.438.438.438 1.15 0 1.588-.438.438-1.15.438-1.587 0a1.114 1.114 0 0 1-.284-1.16l-3.265-3.265v9.508c.123.395.03.847-.283 1.16-.438.438-1.15.438-1.588 0-.438-.438-.438-1.15 0-1.587.312-.312.765-.406 1.16-.282V9.56l-3.3-3.3c-.13.39-.43.705-.815.86l-3.39-3.39-2.03 2.03a1.493 1.493 0 0 0 0 2.103l10.479 10.479a1.493 1.493 0 0 0 2.103 0l10.479-10.479a1.493 1.493 0 0 0 0-2.103z"/>
-    </svg>
-    <span class="text-xs">Git</span>
-</div>
-
-<div class="skill-badge">
-    <!-- FIREBASE (corrigido) -->
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#FFCA28">
-        <path d="M5.8 20.2L12 3l6.2 17.2-6.2-3.6-6.2 3.6z"/>
-    </svg>
-    <span class="text-xs">Firebase</span>
-</div>
-
-<div class="skill-badge">
-    <!-- FIGMA (corrigido) -->
-    <svg class="skill-icon" viewBox="0 0 24 24">
-        <path fill="#F24E1E" d="M8 2a4 4 0 0 1 4 4H8a2 2 0 0 0 0-4z"/>
-        <path fill="#FF7262" d="M8 6h4a4 4 0 1 1-4 4V6z"/>
-        <path fill="#A259FF" d="M8 10h4a4 4 0 1 1-4 4v-4z"/>
-        <path fill="#1ABCFE" d="M12 6h4a4 4 0 1 1-4 4V6z"/>
-        <path fill="#0ACF83" d="M8 14h4a4 4 0 1 1-4 4v-4z"/>
-    </svg>
-    <span class="text-xs">Figma</span>
-</div>
-
-                 <div class="skill-badge">
-    <svg class="skill-icon" viewBox="0 0 24 24" fill="#A259FF">
-        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55 
-        0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 
-        1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 
-        0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 
-        3.15-1.18 3.15-1.18.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.08 0 4.43-2.69 5.4-5.25 5.69.41.36.77 
-        1.09.77 2.2 0 1.59-.01 2.87-.01 3.26 0 .3.21.66.79.55A10.99 10.99 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
-    </svg>
-    <span class="text-xs">GitHub</span>
-</div>
-                    </div>
+                <!-- Project Filters Navigation -->
+                <div class="flex flex-wrap justify-center gap-2 pt-6">
+                    <button onclick="filterProjects('Todos')" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all border bg-cyan-500/15 border-cyan-500/50 text-cyan-400 font-bold">Todos</button>
+                    <button onclick="filterProjects('Fullstack')" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all border border-white/5 bg-white/[0.02] text-slate-400 hover:text-white hover:border-white/15">Fullstack</button>
+                    <button onclick="filterProjects('Frontend')" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all border border-white/5 bg-white/[0.02] text-slate-400 hover:text-white hover:border-white/15">Frontend</button>
+                    <button onclick="filterProjects('Backend')" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all border border-white/5 bg-white/[0.02] text-slate-400 hover:text-white hover:border-white/15">Backend</button>
+                    <button onclick="filterProjects('IA')" class="proj-filter-btn px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all border border-white/5 bg-white/[0.02] text-slate-400 hover:text-white hover:border-white/15">IA & Automação</button>
                 </div>
             </div>
 
-            <!-- Soft Skills -->
-               <h2 class="text-4xl font-serif font-bold text-white mb-16 mt-10 text-center">Soft Skills</h2>
-            <div class="mt-16 grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-white/5 rounded-xl border border-white/5">
-                    <h4 class="text-white font-bold mb-2">Organizado</h4>
-                    <p class="text-sm text-gray-400">Metodologia clara e estrutura em cada projeto</p>
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 (Fullstack) -->
+                <div class="project-card group relative bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 text-left flex flex-col justify-between" data-category="Fullstack">
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img src="asset/images/mockups/tech.png" alt="Sistema de Controle de Compras" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" onerror="this.src='https://placehold.co/800x600/030712/111827?text=Compras+System'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-slate-950/80 border border-white/10 text-[10px] font-mono font-semibold text-cyan-400 uppercase">Fullstack</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Tech Flow+</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Sistema web full stack para gerenciamento de fornecedores e pedidos,desenvolvido com Java, Spring Boot, PostgreSQL, HTML, CSS, JavaScript e Bootstrap. A aplicação possui API REST, separação de DTOs e Entities, cadastro, listagem, edição e exclusão de fornecedores (CRUD), integração completa entre frontend e backend e deploy em produção, com frontend hospedado no Netlify e backend no Render.</p>
+                        </div>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Spring Boot</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">BootStrap</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">PostgreSQL</span>
+                            
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <!-- <button onclick="openModal('compras')" class="text-xs font-bold text-white flex items-center gap-1 hover:text-cyan-400 transition-colors">
+                                    Detalhes <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button> -->
+                                <a href="https://systemsflow.netlify.app/login" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors ml-auto">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver Demo
+                                </a>
+                                <a href="https://github.com/dev-vilela/techflow-systems" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center p-6 bg-white/5 rounded-xl border border-white/5">
-                    <h4 class="text-white font-bold mb-2">Pontualista</h4>
-                    <p class="text-sm text-gray-400">Comprometido com prazos e entregas no tempo certo</p>
+
+                <!-- Project 2 (IA & Automação) -->
+                <div class="project-card group relative bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 text-left flex flex-col justify-between" data-category="IA">
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="Automação de Leads com IA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" onerror="this.src='https://placehold.co/800x600/030712/111827?text=Automação+IA'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-slate-950/80 border border-white/10 text-[10px] font-mono font-semibold text-cyan-400 uppercase">IA & Automação</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Automação de Leads com IA & n8n</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Fluxo inteligente de captação que extrai leads de formulários, analisa o perfil da empresa via IA, gera uma proposta comercial personalizada em PDF e envia via WhatsApp de forma instantânea.</p>
+                        </div>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">n8n</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">GPT-4</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">WhatsApp API</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Node.js</span>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <button onclick="openModal('leads')" class="text-xs font-bold text-white flex items-center gap-1 hover:text-cyan-400 transition-colors">
+                                    Detalhes <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button>
+                                <a href="#" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors ml-auto">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver Demo
+                                </a>
+                                <a href="#" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center p-6 bg-white/5 rounded-xl border border-white/5">
-                    <h4 class="text-white font-bold mb-2">Determinado</h4>
-                    <p class="text-sm text-gray-400">Foco em resultados e superação de desafios</p>
+
+                <!-- Project 3 (Frontend) -->
+                <div class="project-card group relative bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 text-left flex flex-col justify-between" data-category="Frontend">
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img src="asset/images/mockups/botanica.png" alt="Dashboard Administrativo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" onerror="this.src='https://placehold.co/800x600/030712/111827?text=Dashboard+Premium'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-slate-950/80 border border-white/10 text-[10px] font-mono font-semibold text-cyan-400 uppercase">Frontend</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Glit Botânica</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Site responsivo com design moderno e elegante para uma loja de plantas.</p>
+                        </div>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">HTML5</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Jquery</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">JAVASCRIPT</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">CSS3</span>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <!-- <button onclick="openModal('dashboard')" class="text-xs font-bold text-white flex items-center gap-1 hover:text-cyan-400 transition-colors">
+                                    Detalhes <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button> -->
+                                <a href="https://glitbotonica.netlify.app/" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors ml-auto">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver Demo
+                                </a>
+                                <a href="https://github.com/dev-vilela/botanica_glit" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Project 4 (Backend) -->
+                <div class="project-card group relative bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 text-left flex flex-col justify-between" data-category="Backend">
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&q=80&w=800" alt="API Spring Boot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90 group-hover:brightness-100" onerror="this.src='https://placehold.co/800x600/030712/111827?text=Backend+REST+API'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-slate-950/80 border border-white/10 text-[10px] font-mono font-semibold text-cyan-400 uppercase">Backend</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">API REST DE AGENDAMENTO DE BARBEARIA</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Arquitetura robusta de API'REST para gestão de agendamento de barbearia, implementando controle de acessos (RBAC), autenticação JWT e documentação com Swagger.</p>
+                        </div>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Java</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Spring Boot</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Spring Security</span>
+                                <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] text-slate-300 font-mono">Docker</span>
+                            </div>
+                            <div class="flex items-center gap-4 pt-2">
+                                <!-- <button onclick="openModal('api')" class="text-xs font-bold text-white flex items-center gap-1 hover:text-cyan-400 transition-colors">
+                                    Detalhes <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button> -->
+                                <a href="#" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors ml-auto">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver Demo
+                                </a>
+                                <a href="https://github.com/dev-vilela/api_agendamento" class="text-xs font-bold text-slate-400 flex items-center gap-1 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- PROJETOS -->
-    <section id="projetos" class="py-24 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-serif font-bold text-white mb-16 text-center">Projetos</h2>
+    <!-- 6️⃣ HABILIDADES -->
+    <section id="habilidades" class="py-24 border-t border-white/5 bg-slate-950/40 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Tech Flow+ -->
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">MINHA STACK TÉCNICA</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Domínio Tecnológico & Ferramentas</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Habilidades avaliadas sob rigorosos padrões de entrega, cobrindo o ciclo completo do desenvolvimento à automação corporativa.
+                </p>
+
+                <!-- Skills Tab Navigation Switcher -->
+                <div class="flex flex-wrap justify-center gap-2 pt-6">
+                    <button onclick="switchSkillsTab('all')" class="skills-tab-btn px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold">Todas as Skills</button>
+                    <button onclick="switchSkillsTab('front')" class="skills-tab-btn px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all bg-white/5 text-slate-400 hover:text-white hover:bg-white/10">Frontend & UI</button>
+                    <button onclick="switchSkillsTab('back')" class="skills-tab-btn px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all bg-white/5 text-slate-400 hover:text-white hover:bg-white/10">Backend & APIs</button>
+                    <button onclick="switchSkillsTab('tools')" class="skills-tab-btn px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all bg-white/5 text-slate-400 hover:text-white hover:bg-white/10">Ferramentas</button>
+                    <button onclick="switchSkillsTab('ia')" class="skills-tab-btn px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all bg-white/5 text-slate-400 hover:text-white hover:bg-white/10">IA & Automações</button>
+                </div>
+            </div>
+
+            <!-- Skills Cards Layout Grid -->
+            <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- FRONTEND CARD -->
+                <div class="skill-group-card p-6 bg-slate-900/40 border border-white/5 rounded-2xl text-left space-y-6" data-tab="front">
+                    <div class="flex items-center gap-2 border-b border-white/5 pb-4">
+                        <i data-lucide="code" class="w-5 h-5 text-cyan-400"></i>
+                        <h4 class="font-bold text-white text-sm uppercase font-mono tracking-wider">Frontend</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">ReactJs</span>
+                                <span class="text-cyan-400 font-mono font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">HTML5 & CSS3</span>
+                                <span class="text-cyan-400 font-mono font-bold">95%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">JavaScript (ES6+)</span>
+                                <span class="text-cyan-400 font-mono font-bold">88%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Tailwind CSS</span>
+                                <span class="text-cyan-400 font-mono font-bold">92%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Bootstrap</span>
+                                <span class="text-cyan-400 font-mono font-bold">80%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BACKEND CARD -->
+                <div class="skill-group-card p-6 bg-slate-900/40 border border-white/5 rounded-2xl text-left space-y-6" data-tab="back">
+                    <div class="flex items-center gap-2 border-b border-white/5 pb-4">
+                        <i data-lucide="database" class="w-5 h-5 text-purple-400"></i>
+                        <h4 class="font-bold text-white text-sm uppercase font-mono tracking-wider">Backend</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Java</span>
+                                <span class="text-cyan-400 font-mono font-bold">85%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Spring Boot</span>
+                                <span class="text-cyan-400 font-mono font-bold">82%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">APIs RESTful</span>
+                                <span class="text-cyan-400 font-mono font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Node.js</span>
+                                <span class="text-cyan-400 font-mono font-bold">65%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">SQL / PostgreSQL</span>
+                                <span class="text-cyan-400 font-mono font-bold">80%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOLS CARD -->
+                <div class="skill-group-card p-6 bg-slate-900/40 border border-white/5 rounded-2xl text-left space-y-6" data-tab="tools">
+                    <div class="flex items-center gap-2 border-b border-white/5 pb-4">
+                        <i data-lucide="layers" class="w-5 h-5 text-blue-400"></i>
+                        <h4 class="font-bold text-white text-sm uppercase font-mono tracking-wider">Ferramentas</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Git & GitHub</span>
+                                <span class="text-cyan-400 font-mono font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Postman</span>
+                                <span class="text-cyan-400 font-mono font-bold">85%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Docker</span>
+                                <span class="text-cyan-400 font-mono font-bold">40%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Figma</span>
+                                <span class="text-cyan-400 font-mono font-bold">78%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Linux CLI</span>
+                                <span class="text-cyan-400 font-mono font-bold">75%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- AI & AUTOMATION CARD -->
+                <div class="skill-group-card p-6 bg-slate-900/40 border border-white/5 rounded-2xl text-left space-y-6" data-tab="ia">
+                    <div class="flex items-center gap-2 border-b border-white/5 pb-4">
+                        <i data-lucide="git-branch" class="w-5 h-5 text-cyan-400"></i>
+                        <h4 class="font-bold text-white text-sm uppercase font-mono tracking-wider">IA & Automação</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Engenharia de Prompt</span>
+                                <span class="text-cyan-400 font-mono font-bold">90%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">n8n (Workflows)</span>
+                                <span class="text-cyan-400 font-mono font-bold">88%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Agentes de IA Autônomos</span>
+                                <span class="text-cyan-400 font-mono font-bold">82%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Integração LLMs (OpenAI)</span>
+                                <span class="text-cyan-400 font-mono font-bold">85%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300 font-medium">Automação de Processos</span>
+                                <span class="text-cyan-400 font-mono font-bold">92%</span>
+                            </div>
+                            <div class="w-full h-1 bg-slate-950 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7️⃣ EXPERIÊNCIA PROFISSIONAL -->
+    <section id="experiencia" class="py-24 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">DIFERENCIAL DE CARREIRA</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Bagagem no Setor de Compras & Gestão</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Como a expertise corporativa e de negociação eleva a qualidade da Engenharia de Software e das automações que desenvolvo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Purchase Sector details to Tech -->
+                <div class="space-y-6 text-left">
+                    <h4 class="text-xl font-bold text-white">Transformando Rotinas de Compras em Algoritmos Eficientes</h4>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        O gerenciamento de compras envolve a análise rigorosa de requisições, orçamentação multicritério, qualificação de fornecedores e controle de estoques críticos. Essa bagagem operacional me deu habilidades raras de se encontrar em programadores comuns:
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <div class="p-4 rounded-xl border border-white/5 bg-slate-900/30">
+                            <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider font-mono">Visão Analítica</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">Foco na análise crítica de dados de consumo para previsão e otimização de fluxos operacionais.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-white/5 bg-slate-900/30">
+                            <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                <i data-lucide="git-merge" class="w-4 h-4"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider font-mono">Gestão de Processos</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">Capacidade para desenhar fluxos lógicos de aprovação reduzindo tempos de resposta significativamente.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-white/5 bg-slate-900/30">
+                            <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider font-mono">Gestão de Custos</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">Decisões técnicas pautadas pelo retorno de investimento (ROI) e economia de recursos computacionais.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-white/5 bg-slate-900/30">
+                            <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                <i data-lucide="network" class="w-4 h-4"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider font-mono">Sinergia Negócio-TI</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">Ponte de comunicação perfeita entre stakeholders da operação e desenvolvedores técnicos.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-xs font-mono text-cyan-400">
+                        🚀 "Não crio softwares apenas para computadores; crio ferramentas projetadas especificamente para resolver gargalos do mundo real."
+                    </div>
+                </div>
+
+                <!-- Right Process Comparison Visual representation -->
+                <div class="relative">
+                    <div class="p-6 bg-slate-900/50 border border-white/10 rounded-2xl text-left space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/5 pb-3">
+                            <span class="text-xs font-mono text-slate-400 uppercase tracking-widest">Case de Otimização Prática</span>
+                            <span class="px-2 py-0.5 rounded bg-green-500/10 text-green-400 font-mono text-[9px] uppercase">Sucesso</span>
+                        </div>
+
+                        <div class="space-y-4 text-xs font-mono text-slate-300">
+                            <div class="p-3 bg-[#030712] rounded-lg border border-white/5 space-y-1">
+                                <span class="text-[10px] text-red-400 block">PROCESSO ANTIGO (Manual):</span>
+                                <p class="text-slate-400">Solicitante envia e-mail → Comprador busca fornecedores em 5 planilhas → Copia e cola contatos → Envia e-mails manuais → Coleta orçamentos → Registra no ERP.</p>
+                                <span class="text-[10px] text-slate-500 block font-bold">Tempo estimado: 3 a 5 horas por pedido</span>
+                            </div>
+
+                            <div class="text-center text-slate-500">
+                                ⬇ (Otimização Integrando APIs + IA da Protechvil)
+                            </div>
+
+                            <div class="p-3 bg-gradient-to-r from-cyan-950 to-blue-950 rounded-lg border border-cyan-500/20 space-y-1">
+                                <span class="text-[10px] text-cyan-400 block">PROCESSO PROTECHVIL (Automatizado):</span>
+                                <p class="text-white">Formulário Web → Bot IA envia requisição via API para fornecedores pré-cadastrados → IA lê as cotações via OCR → Apresenta relatório comparativo de menor custo no Dashboard.</p>
+                                <span class="text-[10px] text-cyan-400 block font-bold">Tempo estimado: 2 minutos (Sem erro humano)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8️⃣ DEPOIMENTOS / PROVA SOCIAL -->
+   
+    <!-- 
+    
+    
+       <section id="depoimentos" class="py-24 border-t border-white/5 bg-slate-950/40 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono tracking-[0.2em] text-cyan-400 uppercase font-bold">PROVA SOCIAL</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">O que dizem sobre minhas entregas</h3>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Avaliações reais e feedbacks que reforçam a excelência técnica e o comprometimento profissional.
+                </p>
+            </div>
+
+            Testimonials responsive layout 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                 Testimonial 1 
+                <div class="p-6 bg-slate-900/30 border border-white/5 rounded-2xl text-left flex flex-col justify-between hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div>
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                            "Contratamos a PROTECHVIL para automatizar nosso fluxo de vendas. O resultado foi incrível: economizamos cerca de 18 horas de trabalho manual por semana e eliminamos erros humanos na qualificação de leads."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-6">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120" alt="Rodrigo Vasconcelos" class="w-10 h-10 rounded-full object-cover border border-white/10" onerror="this.src='https://placehold.co/120x120/1f2937/fff?text=RV'">
+                        <div>
+                            <h5 class="text-xs font-bold text-white">Rodrigo Vasconcelos</h5>
+                            <p class="text-[10px] text-slate-500 font-mono">CEO na InnovaTech Corp</p>
+                        </div>
+                    </div>
+                </div>
+
+                Testimonial 2 
+                <div class="p-6 bg-slate-900/30 border border-white/5 rounded-2xl text-left flex flex-col justify-between hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div>
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                            "A visão analítica e a bagagem de processos corporativos dele fizeram total diferença. Ele não apenas programa, ele entende o negócio e constrói soluções que geram ROI real desde a primeira semana."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Mariana Alencar" class="w-10 h-10 rounded-full object-cover border border-white/10" onerror="this.src='https://placehold.co/120x120/1f2937/fff?text=MA'">
+                        <div>
+                            <h5 class="text-xs font-bold text-white">Mariana Alencar</h5>
+                            <p class="text-[10px] text-slate-500 font-mono">Diretora de Operações</p>
+                        </div>
+                    </div>
+                </div>
+
+                <- Testimonial 3 
+                <div class="p-6 bg-slate-900/30 border border-white/5 rounded-2xl text-left flex flex-col justify-between hover:border-cyan-500/20 hover:bg-slate-900/50 transition-all duration-300">
+                    <div>
+                        <div class="flex gap-1 text-yellow-400 mb-4">
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                            <span class="text-lg">★</span>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                            "A API desenvolvida em Spring Boot é extremamente performática e segura. O nível de atenção aos detalhes arquiteturais, documentação e entrega de código limpo é digno de engenheiros seniores do mercado."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-6">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120" alt="Daniel Mendes" class="w-10 h-10 rounded-full object-cover border border-white/10" onerror="this.src='https://placehold.co/120x120/1f2937/fff?text=DM'">
+                        <div>
+                            <h5 class="text-xs font-bold text-white">Daniel Mendes</h5>
+                            <p class="text-[10px] text-slate-500 font-mono">Gerente de TI</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+
+    ----->
+
+    <!-- 9️⃣ CONTATO -->
+    <section id="contato" class="py-24 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Details Info & direct links -->
+                <div class="lg:col-span-5 text-left space-y-6">
                     
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                       <a href="https://systemsflow.netlify.app/login" target="_blank"><img src="asset/images/mockups/tech.png" alt=""> </a> 
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-medium tracking-wide">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        VAMOS CRIAR JUNTOS
                     </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Tech Flow+</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Sistema web full stack para gerenciamento de fornecedores e pedidos,desenvolvido com Java, Spring Boot, PostgreSQL, HTML, CSS, JavaScript e Bootstrap. A aplicação possui API REST, separação de DTOs e Entities, cadastro, listagem, edição e exclusão de fornecedores (CRUD), integração completa entre frontend e backend e deploy em produção, com frontend hospedado no Netlify e backend no Render.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold">
-                            <span>Java</span> • <span>Spring Boot</span> • <span>BootStrap</span>
+
+                    <h3 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                        Construa algo incrível comigo.
+                    </h3>
+
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Está em busca de automatizar sua empresa com IA, implementar APIs Spring Boot de alta segurança ou necessita de uma Landing Page com performance de topo de mercado? Preencha o formulário ao lado e vamos conversar.
+                    </p>
+
+                    <!-- Direct Fast Links -->
+                    <div class="space-y-4 pt-4">
+                        
+                        <a href="mailto:paulofurtado320@gmail.com" class="flex items-center gap-3 p-4 rounded-xl border border-white/5 bg-slate-900/30 hover:border-cyan-500/30 transition-all text-slate-300 hover:text-white">
+                            <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 block">E-mail</span>
+                                <span class="text-sm font-semibold">paulofurtado320@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <!-- <a href="https://wa.me/5511999999999" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-4 rounded-xl border border-white/5 bg-slate-900/30 hover:border-green-500/30 transition-all text-slate-300 hover:text-white">
+                            <i data-lucide="phone" class="w-5 h-5 text-green-400"></i>
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 block">WhatsApp de Atendimento</span>
+                                <span class="text-sm font-semibold">+55 11 99999-9999</span>
+                            </div>
+                        </a> -->
+
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="pt-6">
+                        <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-3">Redes Profissionais</span>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/dev-vilela" target="_blank" class="p-3 bg-white/5 border border-white/10 hover:border-cyan-500/50 hover:text-cyan-400 rounded-xl text-slate-300 transition-all"><i  class="fa-brands fa-github " ></i></a>
+                            <a href="https://www.linkedin.com/in/paulo-vilela-18126922b/" target="_blank" class="p-3 bg-white/5 border border-white/10 hover:border-blue-500/50 hover:text-blue-400 rounded-xl text-slate-300 transition-all"><i class="fa-brands fa-linkedin "></i></a>
+                            <a href="https://www.instagram.com/dev_vilela/" target="_blank" class="p-3 bg-white/5 border border-white/10 hover:border-purple-500/50 hover:text-purple-400 rounded-xl text-slate-300 transition-all"><i class="fa-brands fa-instagram "></i></a>
                         </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Form Premium Interface -->
+                <div class="lg:col-span-7">
+                    <div class="p-1 rounded-2xl bg-gradient-to-tr from-cyan-500/20 via-blue-500/20 to-purple-500/20">
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-[#030712]/90 backdrop-blur-xl border border-white/5 p-6 sm:p-8 rounded-[15px] space-y-6 text-left">
+                            
+                            <!-- Custom Action Notification Success Banner (Hidden by default) -->
+                            <div id="form-feedback-banner" class="hidden p-4 rounded-xl text-xs font-mono flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                                <span id="feedback-message"></span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Seu Nome *</label>
+                                    <input type="text" id="form-name" required placeholder="Ex: João Silva" class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 text-sm transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Seu E-mail *</label>
+                                    <input type="email" id="form-email" required placeholder="Ex: joao@empresa.com" class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 text-sm transition-all">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Mensagem ou escopo do projeto *</label>
+                                <textarea id="form-message" rows="4" required placeholder="Descreva detalhadamente o sistema, Landing Page ou automação que necessita..." class="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 text-sm transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" id="form-submit-btn" class="w-full py-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all uppercase tracking-wider text-xs">
+                                <span>Transmitir Dados do Formulário</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+
+                            <p class="text-[10px] text-slate-500 text-center">
+                                * Seus dados são confidenciais e protegidos nos termos da LGPD.
+                            </p>
+
+                        </form>
                     </div>
                 </div>
 
-                <!-- Sistema de Chamados -->
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                         <a href="https://autentic.netlify.app/" target="_blank"><img src="asset/images/mockups/chamados.png" alt=""> </a> 
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Sistema de Chamados</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Sistema com ReactJS e Firebase para atendimento e gerenciamento de chamados.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold">
-                            <span>ReactJS</span> • <span>Firebase</span> • <span>css3</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Academy Tech -->
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                         <a href="https://github.com/dev-vilela/academy" target="_blank"><img src="asset/images/mockups/TELA.png" alt=""> </a> 
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Academy Tech</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Sistema web completo para gerenciamento de alunos com autenticação e banco de dados.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold">
-                            <span>Java</span> • <span>Spring Boot</span> • <span>Thymeleaf</span> • <span>Bootstrap</span>   
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gili Botânica -->
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                         <a href="https://glitbotonica.netlify.app/" target="_blank"><img src="asset/images/mockups/botanica.png" alt=""> </a> 
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Glit Botânica</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Site responsivo com design moderno e elegante para uma loja de plantas.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold">
-                            <span>HTML5</span> • <span>CSS3</span> • <span>JavaScript</span> • <span>Jquery</span> 
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RedBurger -->
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                        <a href="https://dev-vilela.github.io/RedBurguer/" target="_blank"><img src="asset/images/mockups/red.png" alt=""> </a> 
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">RedBurger</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Landing page moderna para hamburgueria com layout criativo.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold"> 
-                            <span>HTML5</span> • <span>CSS3</span> • <span>TailwindCss</span> • <span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="group bg-dark rounded-2xl overflow-hidden border border-white/5 hover:-translate-y-2 transition-all duration-500 custom-shadow">
-                    <div class="h-48 bg-white/10 flex items-center justify-center text-white/20 italic">
-                        <a href="https://protechvil.netlify.app/" target="_blank"><img src="asset/images/mockups/protech.png" alt=""> </a> 
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">ProtechVil</h3>
-                        <p class="text-sm text-gray-400 mb-4 line-clamp-2">Landing page moderna para empresa de tecnologia especializada na criação de landing pages modernas, estratégicas e orientadas à conversão.</p>
-                        <div class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-gold"> 
-                            <span>HTML5</span> • <span>CSS3</span> • <span>TailwindCss</span> • <span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
             </div>
+
         </div>
     </section>
 
-    <!-- EDUCAÇÃO -->
-    <section id="educacao" class="py-24 bg-dark">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-4xl font-serif font-bold text-white mb-16 text-center">Educação</h2>
-            
-            <div class="space-y-8">
-                <!-- Eng Software -->
-                <div class="flex gap-6 p-8 bg-surface rounded-2xl border border-white/5 relative group">
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gold group-hover:h-1/2 transition-all duration-500"></div>
-                    <div class="text-gold mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                        </svg>
+    <!-- 🔟 RODAPÉ -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left">
+                
+                <!-- Col 1: Brand details summary -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-400 to-purple-600 flex items-center justify-center text-white font-black text-sm">
+                            PV
+                        </div>
+                        <div>
+                            <span class="font-bold text-base tracking-tight text-white block">PAULO VILELA</span>
+                            <span class="text-[9px] text-cyan-400 font-mono tracking-widest uppercase -mt-1 block">AI & DEVELOPMENT</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-1">Bacharelado em Engenharia de Software</h3>
-                        <p class="text-gray-400 text-sm">Faculdade Estácio Gama – DF</p>
-                        <span class="inline-block mt-3 px-3 py-1 rounded-full border border-gold/30 text-[10px] text-gold uppercase font-bold tracking-widest">Cursando</span>
-                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Desenvolvedor Full Stack focado em construir aplicações modernas, integrações eficientes e soluções com Inteligência Artificial para otimizar processos e transformar ideias em sistemas reais.
+                    </p>
                 </div>
 
-                <!-- ADS -->
-                <div class="flex gap-6 p-8 bg-surface rounded-2xl border border-white/5 relative group">
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gold group-hover:h-1/2 transition-all duration-500"></div>
-                    <div class="text-gold mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-1">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
-                        <p class="text-gray-400 text-sm">Unidesc – Luziânia - GO</p>
-                        <span class="inline-block mt-3 px-3 py-1 rounded-full border border-green-500/30 text-[10px] text-green-500 uppercase font-bold tracking-widest">Concluído</span>
-                    </div>
+                <!-- Col 2: Navigation Shortcuts -->
+                <div class="space-y-4">
+                    <h5 class="text-xs font-mono text-white uppercase tracking-wider font-bold">Navegação</h5>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><button onclick="scrollToSection('sobre')" class="hover:text-cyan-400 transition-colors">Sobre Mim</button></li>
+                        <li><button onclick="scrollToSection('formacoes')" class="hover:text-cyan-400 transition-colors">Formações & Estudos</button></li>
+                        <li><button onclick="scrollToSection('empresa')" class="hover:text-cyan-400 transition-colors">PROTECHVIL</button></li>
+                        <li><button onclick="scrollToSection('projetos')" class="hover:text-cyan-400 transition-colors">Portfólio de Projetos</button></li>
+                    </ul>
                 </div>
 
-                <!-- Técnico -->
-                <div class="flex gap-6 p-8 bg-surface rounded-2xl border border-white/5 relative group">
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gold group-hover:h-1/2 transition-all duration-500"></div>
-                    <div class="text-gold mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-1">Técnico em Administração</h3>
-                        <p class="text-gray-400 text-sm">ITEGO – Porangatu – GO</p>
-                        <span class="inline-block mt-3 px-3 py-1 rounded-full border border-green-500/30 text-[10px] text-green-500 uppercase font-bold tracking-widest">Concluído</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="py-24 bg-surface relative">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-serif font-bold text-white mb-6">Vamos conversar</h2>
-            <p class="text-gray-400 mb-16 max-w-xl mx-auto">Estou em busca de novas oportunidades. Sinta-se à vontade para entrar em contato através de qualquer canal abaixo.</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Email -->
-                <a href="mailto:paulofurtado320@gmail.com" class="p-8 bg-dark rounded-2xl border border-white/5 hover:border-gold transition-colors duration-500 group">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <span class="text-sm font-medium text-white">Email</span>
-                </a>
-
-                <!-- Telefone -->
-                <div class="p-8 bg-dark rounded-2xl border border-white/5 hover:border-gold transition-colors duration-500 group cursor-pointer">
-                    <a href="https://wa.me/5561995700392?text=Olá,%20Paulo%20vim%20pelo%20portfolio" >
-
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                    </div>
-                    <span class="text-sm font-medium text-white">Telefone</span>
-                    </a>
-
+                <!-- Col 3: Services Solutions summaries -->
+                <div class="space-y-4">
+                    <h5 class="text-xs font-mono text-white uppercase tracking-wider font-bold">Soluções</h5>
+                    <ul class="text-xs text-slate-400 space-y-2">
+                        <li><span class="hover:text-cyan-400 cursor-pointer">Landing Pages Premium</span></li>
+                        <li><span class="hover:text-cyan-400 cursor-pointer">Automação IA n8n / Python</span></li>
+                        <li><span class="hover:text-cyan-400 cursor-pointer">Modelagem APIs Java Spring</span></li>
+                        <li><span class="hover:text-cyan-400 cursor-pointer">Sistemas Corporativos</span></li>
+                    </ul>
                 </div>
 
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/paulo-vilela-18126922b/" target="_blank" class="p-8 bg-dark rounded-2xl border border-white/5 hover:border-gold transition-colors duration-500 group">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </div>
-                    <span class="text-sm font-medium text-white">LinkedIn</span>
-                </a>
+                <!-- Col 4: Fast Legal contact -->
+                <div class="space-y-4">
+                    <h5 class="text-xs font-mono text-white uppercase tracking-wider font-bold">Contato Direto</h5>
+                    <p class="text-xs text-slate-400">Atendimento nacional focado em soluções digitais inteligentes.</p>
+                    <p class="text-xs text-white font-mono font-bold">paulofurtado320@gmail.com</p>
+                </div>
 
-                <!-- GitHub -->
-                <a href="https://github.com/dev-vilela" target="_blank" class="p-8 bg-dark rounded-2xl border border-white/5 hover:border-gold transition-colors duration-500 group">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/10 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </div>
-                    <span class="text-sm font-medium text-white">GitHub</span>
-                </a>
             </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="py-12 border-t border-white/5 bg-dark">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:row items-center justify-between gap-6">
-            <div class="text-xl font-serif font-bold">
-                <span class="text-gold">P</span>V
+            <!-- Footer Compliance links and credits -->
+            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-left">
+                <span>&copy; <span id="current-year"></span> By Paulo Vilela. Todos os direitos reservados.</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                </div>
             </div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">
-                © 2026 Paulo Vilela • Todos os direitos reservados
-            </p>
-            <div class="flex space-x-6 text-gray-500">
-                <!-- Mini Icons/Links could go here -->
-            </div>
+
         </div>
     </footer>
 
+    <!-- Back to top flutuante button indicator -->
+    <button id="scroll-to-top-btn" onclick="scrollToSection('home')" class="fixed bottom-6 right-6 p-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg hover:scale-110 active:scale-95 transition-all z-40 border border-white/10 hidden" title="Voltar ao topo">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
 
-    <script src="js/btn.js"></script>
+    <!-- PREMIUM DETAIL PROJECT MODAL OVERLAY -->
+    <div id="project-detail-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-slate-900 border border-white/10 rounded-2xl max-w-lg w-full p-6 space-y-6 relative text-left">
+            <button onclick="closeModal()" class="absolute top-4 right-4 p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-2">
+                <span id="modal-project-category" class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 font-mono text-[10px] uppercase font-bold"></span>
+                <h3 id="modal-project-title" class="text-xl font-bold text-white"></h3>
+            </div>
+
+            <p id="modal-project-description" class="text-slate-300 text-sm leading-relaxed"></p>
+
+            <div class="space-y-3">
+                <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Principais Entregáveis do Sistema:</h4>
+                <ul class="text-xs text-slate-300 space-y-1.5">
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Interface adaptável para qualquer dispositivo móvel ou tablet.
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Processamento assíncrono para garantir carregamentos instantâneos.
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Integração de agentes GPT para análise autônoma de dados.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4 pt-4 border-t border-white/5">
+                <a href="#" id="modal-action-btn" class="flex-1 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-center text-xs font-bold text-white">
+                    Acessar Plataforma
+                </a>
+                <button onclick="closeModal()" class="flex-1 py-2.5 bg-white/5 border border-white/10 rounded-xl text-center text-xs font-bold text-slate-300 hover:text-white">
+                    Voltar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC ENGINE -->
+  <script src="js/port_atual.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+    lucide.createIcons();
+</script>
 </body>
 </html>
